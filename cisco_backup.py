@@ -35,5 +35,6 @@ with open('switches.csv', 'r') as csvfile:
                 config_file.write(running_config)
 
             net_connect.disconnect()
+            print("The running config of " + csv_hostname + " has been successfully saved.")
         else:
-            print("The host " + csv_hostname + " " + csv_device + " did not respond to the ping...")
+            print("The host " + csv_hostname + " " + csv_device + " did not respond to the ping... The config failed to save.")
