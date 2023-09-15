@@ -1,10 +1,10 @@
 from netmiko import ConnectHandler
 import getpass
 import csv
-import os
+import subprocess
 
 def ping(address):
-    return os.system('ping %s -n 2' % (address))
+    return subprocess.run(['ping',address,'-n','2'],stdout=subprocess.DEVNULL)
 
 user = input("Enter the SSH username : ")
 passwd = getpass.getpass('Enter the password : ')
@@ -18,7 +18,7 @@ with open('switches.csv', 'r') as csvfile:
 
         alive = ping(csv_device)
 
-        if alive==0:
+        if alive.returncode==0:
             net_connect = ConnectHandler(
                 device_type="cisco_ios",
                 host=csv_device,
