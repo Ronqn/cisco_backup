@@ -20,6 +20,8 @@ The CSV file must be located in the same directory as the Python script.
 
 Execute the script.
 
+The script will check the CSV file, ping the device and if the ping is successful, it saves the running config.
+
 The configuration files will be saved in the same directory as the script.
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
